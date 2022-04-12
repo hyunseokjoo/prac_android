@@ -47,9 +47,3 @@
 - Sqlite는 데이터베이스 이기 때문에 데이터를 저장하거나 삭제하는 것이 가능하여 데이터 처리가 가능해짐
 - 보통 큰 데이터를 조회하거나 처리하는 경우 백단이 개발되어 API로 처리하게 되고 간단하게 앱에서 처리 가능 한것은 Room을 이용하여 처리하게 됨
 
-# MVVM 패턴 사용법 알아보기 ViewModel + LiveData
-
-- ViewModel이란 그냥 하나의 패턴명이나 파일명에 불과함 (ex: Activity화면명ViewModel.kt라는 파일이)
-- 여기에서 LiveData라는 라이브러리를 붙이게 되면 MVVM패턴에 VM부분을 담당 할 수 있음
-- LiveData에 ViewModel을 등록해주면 해당 Activity와 Fragment의 Lifecycle대로 유지되었다가 사라지게 만들어 줌
-- LiveData는 ViewModel에 데이터가 변경 될 때마다 Onchanged 메소드를 계속 호출을 해줌
