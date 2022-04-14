@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){ permissions ->
-
             isAccessCoarseLocationPermissionGranted = permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: isAccessCoarseLocationPermissionGranted
             isReadPermissionGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: isReadPermissionGranted
             isWritePermissionGranted = permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: isWritePermissionGranted
             isLocationPermissionGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isLocationPermissionGranted
             isRecordAudioPermissionGranted = permissions[Manifest.permission.RECORD_AUDIO] ?: isRecordAudioPermissionGranted
 
+            //자리에 맞게 재요청 할 내용 Toast표시 및 requestPermission다시 보내기 등 하면 되는 자리
         }
 
         selfCheckPermission()
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //권한 요청
+    //권한 없는것 요청
     private fun requestPermission() {
         val permissionRequest : MutableList<String> = ArrayList()
         if(!isAccessCoarseLocationPermissionGranted){ permissionRequest.add(Manifest.permission.ACCESS_COARSE_LOCATION) }
