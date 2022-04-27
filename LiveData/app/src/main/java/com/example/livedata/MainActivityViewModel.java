@@ -16,6 +16,10 @@ public class MainActivityViewModel extends ViewModel {
 
     // 3. 객체 getter 메소드 구현
     public MutableLiveData<Integer> getNum() {
+        if(num == null){
+            num = new MutableLiveData<>();
+            return num;
+        }
         return num;
     }
 
@@ -27,5 +31,4 @@ public class MainActivityViewModel extends ViewModel {
     public void minus(){
         num.setValue(num.getValue() - 1);
     }
-
 }

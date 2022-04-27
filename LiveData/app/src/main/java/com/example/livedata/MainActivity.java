@@ -11,10 +11,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // 화면 구성 전역 변수 선언
     Button btnAdd;
     Button btnMinus;
     TextView tvNum;
 
+    // ViewModel 전역 변수 선언
     MainActivityViewModel viewModel;
 
     @Override
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnMinus = findViewById(R.id.btn_minus);
         tvNum = findViewById(R.id.tv_num);
 
+        //버튼 클릭 시 ViewModel에 있는 컨트롤러 실행
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //ViewModel에서 사용할 onChanged메소드 구현
     private void initViewModel() {
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
