@@ -23,5 +23,4 @@ public interface RetroServiceInterface {
     @DELETE("users/{user}")
     @Headers({"Accept:application/json", "Content-Type:application/json", "Authorization: Bearer 04fb725a3c0aa4dce06d3993f62d7798395b2115f0255c3c4f0bb921bc1f06ac"})
     Call<UserResponse> deleteUser(@Path("user") String userId);
-
 }

@@ -11,17 +11,16 @@ import retrofit2.Response;
 
 public class MainActivityViewModel extends ViewModel {
     private MutableLiveData<UserResponse> createNewUserLiveData;
-
     private RetroServiceInterface retroServiceInterface;
 
     public MainActivityViewModel() {
         createNewUserLiveData = new MutableLiveData<>();
     }
-
     public MutableLiveData<UserResponse> getCreateUserObserver() {
         return createNewUserLiveData;
     }
 
+    // User 생성 API호출 메소드
     public void createNewUser (User user) {
         retroServiceInterface = RetroInstance.getRetroInstance().create(RetroServiceInterface.class);
         Call<UserResponse> call = retroServiceInterface.createUser(user);
@@ -42,6 +41,7 @@ public class MainActivityViewModel extends ViewModel {
         });
     }
 
+    // User Detail 조회 메소드
     public void getUser(String userId){
         retroServiceInterface = RetroInstance.getRetroInstance().create(RetroServiceInterface.class);
         Call<UserResponse> call = retroServiceInterface.getUser(userId);
@@ -60,6 +60,7 @@ public class MainActivityViewModel extends ViewModel {
         });
     }
 
+    // User 삭제 메소드
     public void deleteUser(String userId){
         retroServiceInterface = RetroInstance.getRetroInstance().create(RetroServiceInterface.class);
         Call<UserResponse> call = retroServiceInterface.deleteUser(userId);
